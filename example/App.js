@@ -23,6 +23,7 @@ import copyAllCheckboxPlugin from './src/copyAllCheckboxPlugin';
 import pluginRules from './src/pluginRules';
 import all from './src/copy/all';
 import linkedimg from './src/copy/linkedimg';
+import list from './src/copy/list';
 
 import MarkdownIt from 'markdown-it';
 
@@ -121,6 +122,11 @@ const routes = {
       <Markdown markdownit={md} children={linkedimg} />
     </ScrollView>
   ),
+  list: () => (
+    <ScrollView>
+      <Markdown markdownit={md} children={list} />
+    </ScrollView>
+  )
 };
 
 const initialLayout = {
@@ -131,7 +137,7 @@ const initialLayout = {
 export default class App extends Component {
   state = {
     index: 0,
-    routes: [{ key: 'all', title: 'All' }, { key: 'linkedimg', title: 'Linked Images' }],
+    routes: [{ key: 'all', title: 'All' }, { key: 'linkedimg', title: 'Linked Images' }, { key: 'list', title: 'List Numbers' }],
   };
 
   handleIndexChange = index => this.setState({ index });
